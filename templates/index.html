@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Predict Student Marks Based on Study Hours</h2>
+
+        <form action="/predict" method="POST">
+            <label for="study_hours">Enter Study Hours:</label>
+            <input type="text" id="study_hours" name="study_hours" required>
+
+            <button type="submit">Predict Marks</button>
+        </form>
+
+        {% if predicted_marks %}
+        <div class="result">
+            <h3>Predicted Marks: {{ predicted_marks }}</h3>
+        </div>
+        {% endif %}
+
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='images/college_banner2.png') }}" alt="College Image">
+        </div>
+    </div>
+</body>
+</html>
